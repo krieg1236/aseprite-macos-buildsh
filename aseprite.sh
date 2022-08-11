@@ -3,7 +3,7 @@
 # Script to automate building latest release of Aseprite (it can be release or beta build)
 # This is for macOS build version.
 
-POSTFIXPATH_SDKROOT=Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk
+POSTFIXPATH_SDKROOT=Platforms/MacOSX.platform/Developer/SDKs/MacOS.sdk
 CCPATH_TOOLCHAIN=Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
 CXXPATH_TOOLCHAIN=Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 SDK_ROOT=`xcode-select -p`
@@ -155,6 +155,8 @@ cmake \
   -DSKIA_DIR="${PWD}/../../deps/skia" \
   -DSKIA_LIBRARY_DIR="${PWD}/../../deps/skia/out/Release-x64" \
   -DSKIA_LIBRARY="${PWD}/../../deps/skia/out/Release-x64/libskia.a" \
+  -DUSE_SHARED_CURL=YES \
+  -DCURL_INCLUDE_DIR="/usr/local/opt/curl/include" \
   -G Ninja \
   .. && \
 ninja aseprite # when finish, build file will be at aseprite/build/bin
