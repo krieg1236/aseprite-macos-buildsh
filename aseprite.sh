@@ -155,6 +155,8 @@ cmake \
   -DSKIA_DIR="${PWD}/../../deps/skia" \
   -DSKIA_LIBRARY_DIR="${PWD}/../../deps/skia/out/Release-x64" \
   -DSKIA_LIBRARY="${PWD}/../../deps/skia/out/Release-x64/libskia.a" \
+  -DUSE_SHARED_CURL=YES \
+  -DCURL_INCLUDE_DIR="/usr/local/opt/curl/include" \
   -G Ninja \
   .. && \
 ninja aseprite # when finish, build file will be at aseprite/build/bin
